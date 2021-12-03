@@ -7,8 +7,8 @@ app.use(express.json());
 const stuffRoutes = require('./routes/stuff')
 const userRoutes = require('./routes/user');
 
-
-mongoose.connect('mongodb+srv://nikolla2502:M156029@cluster0.kuvdm.mongodb.net/P6Database?retryWrites=true&w=majority',
+require('dotenv').config()
+mongoose.connect(process.env.MONGO_URI,
 { useNewUrlParser: true,
   useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
